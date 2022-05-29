@@ -56,7 +56,7 @@ def createDataset():
                     np.save(npy_path, keypoints)
 
                     print("{}".format(npy_path))
-                    # print(keypoints)
+                
                     if(frame_num == every_sequence_length-1):
                         seq_counter += 1
                     if (seq_counter == number_of_sequences):
@@ -65,13 +65,6 @@ def createDataset():
 
                 stop = time.time()
                 print("\n\n\nCollecting frames ended. Time: {}\n\n\n".format(stop-start))
-                # return frame.tobytes()
-
-
-            # if (cv2.getWindowProperty("window", cv2.WND_PROP_VISIBLE) < 1) or (cv2.waitKey(1) & 0xFF == 27):
-            #     break
-
         cap.release()
         cv2.destroyAllWindows()
-# createDataset()
 

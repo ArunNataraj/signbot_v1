@@ -1,6 +1,5 @@
 from landmarkDetection import *
 from decimal import Decimal
-# from win32com.client import Dispatch
 from time import sleep
 import pyttsx3
 engine = pyttsx3.init()
@@ -51,15 +50,10 @@ def signLanguageRecognizer():
                                   + actions[ind[1]] + ':' + str((res[ind[1]] * 100).astype(float)) + ' %' + '      '
                                   + actions[ind[2]] + ':' + str((res[ind[2]] * 100).astype(float)) + ' %')
 
-                        # cv2.putText(image, actions[np.argmax(res)] + ' : ' + str((max(res) * 100).astype(float)) + ' %',
-                        #             (15, 25),
-                        #             cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 1, cv2.LINE_AA)
-
-                        # speak = Dispatch("SAPI.SpVoice")
+                     
                         engine.say(actions[np.argmax(res)])
                         engine.runAndWait()
-                        # speak.Speak(actions[np.argmax(res)])
-                        # continue
+                        
 
             cv2.imshow("window", image)
             k = cv2.waitKey(1)
